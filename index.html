@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        #content {
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Website</h1>
+    <div id="content">
+        <button id="randomButton">Click Me for Random Actions</button>
+    </div>
+
+    <script>
+        const button = document.getElementById("randomButton");
+        const content = document.getElementById("content");
+
+        // Array of possible random actions
+        const actions = [
+            changeColor,
+            addText,
+            redirectToChannel,
+            redirectToVideoLink,
+            changeButtonPosition
+        ];
+
+        // Function to change the background color randomly
+        function changeColor() {
+            const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            content.style.backgroundColor = randomColor;
+        }
+
+        // Function to add random text to the content
+        function addText() {
+            const texts = ["Hello!", "Loser", "69", "Yo"];
+            const randomText = texts[Math.floor(Math.random() * texts.length)];
+            const paragraph = document.createElement("p");
+            paragraph.textContent = randomText;
+            content.appendChild(paragraph);
+        }
+
+        // Function to redirect to your YouTube channel
+        function redirectToChannel() {
+            window.location.href = "https://www.youtube.com/@1ZABBO1?si=flzVNdbWXCw5yjW6";
+        }
+
+        // Function to redirect to a specific YouTube video link
+        function redirectToVideoLink() {
+            window.location.href = "https://youtu.be/dQw4w9WgXcQ?si=e-TfswYegS2wmd6F";
+        }
+
+        // Function to change the button's position
+        function changeButtonPosition() {
+            const newPosition = {
+                top: Math.floor(Math.random() * window.innerHeight) + 'px',
+                left: Math.floor(Math.random() * window.innerWidth) + 'px'
+            };
+            button.style.position = 'absolute';
+            button.style.top = newPosition.top;
+            button.style.left = newPosition.left;
+        }
+
+        // Add a click event listener to the button
+        button.addEventListener("click", () => {
+            // Call a random action
+            const randomAction = actions[Math.floor(Math.random() * actions.length)];
+            randomAction();
+        });
+    </script>
+</body>
+</html>
